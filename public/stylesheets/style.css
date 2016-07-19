@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 13px Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
+a {
+    color: #00B7FF;
+}
+
+form.messagebox {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.page-footer {
+    background-color: #FFFFFF !important;
+}
+
+.messagebox input {
+    background-color: #EFEAE9;
+    height: 50px;
+    font-size: 30px;
+    border: 0;
+    padding: 6px 10px;
+    width: 74%;
+    margin-right: .5%;
+    margin-left: 5.5%;
+}
+
+.messagebox button {
+    width: 13%;
+    background: rgb(130, 224, 255);
+    border: none;
+    padding: 10px;
+}
+
+._right {
+    text-align: right;
+    margin-left: auto;
+}
+
+.m6 {
+    margin-right: 50%;
+}
+
+#messages-window {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /*overflow-y: auto;*/
+    margin-bottom: 100px;
+    /*max-height: 580px;*/
+}
+
+#messages-window li {
+    /*height: 50px;*/
+    padding: 10px;
+    display: block;
+    /*max-width: 45%;*/
+}
+
+#messages-window li {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.5s;
+}
+
+.messages {
+    display: inline-block;
+    padding: 5px;
+}
+
+.card .card-content .card-title {
+    line-height: 30px;
+}
+
+.card .card-title {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.card .card-content {
+    padding: 0px 10px 10px 10px;
+    border-radius: 0 0 2px 2px;
+}
+
+#time {
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 640px) {
+    #messages-window li {
+        max-width: 95%;
+    }
+    form input {
+        margin-left: 1.5%;
+    }
+    form button {
+        width: auto;
+    }
+    .button {
+        padding: 1.2em 5%;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    #toast-container {
+        top: 10%;
+        margin-left: 38%;
+        max-width: 26%;
+        right:initial;
+    }
+}
