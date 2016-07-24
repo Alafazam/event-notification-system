@@ -15,15 +15,15 @@ I have used [materialize.css](materializecss.com) for front end because my front
 
 
 ### API Usage
- ```/api/items```\
+ `/api/items`\
 **GET**\
 Get all items in database.\
 **POST** \
 `key`: `name`\
 `value`:- `nameforItem` eg G.O.T\
-Creates a new Item in database.\
+Creates a new Item in database.
 
-```api/items/:name```\
+`api/items/:name`\
 **GET**\
 Get item with `name` in database.\
 **PUT** \
@@ -32,27 +32,27 @@ Update the Item  with  `name` in database. Here we are just updating its last mo
 Get item with `name` in database.
 
 ### Now for actual usage
-Just go to ```/getting_statred```, select what you want to subscribe to and wait for changes to occur in db.
+Just go to `/getting_statred`, select what you want to subscribe to and wait for changes to occur in db.
 List of Items to subscribe to is genrated automatically from db. So to addother item there one must create the item in db.\
 #### Endpoints
-```/subscribe```\
+`/subscribe`\
 **GET**\
 Get all subscription items.\
 **POST** \
-Subscribe to somthing.\
+Subscribe to somthing.
 
-```/subscribe/:item_id```\
+`/subscribe/:item_id`\
 item_id is Item name\
 **GET**\
 Tell if your are subscribed to item with `item_id` in database.\
 **PUT** \
 subscribe to item with `item_id` in database.\
 **DELETE**\
-unsubscribe to item with `item_id` in database.\
+unsubscribe to item with `item_id` in database.
 
-```/subscribe_all```\
+`/subscribe_all`\
 **GET**\
 subscribe to all items \
 **DELETE**\
-unsubscribe from all items \
+unsubscribe from all items 
 
