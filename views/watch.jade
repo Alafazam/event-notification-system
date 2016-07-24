@@ -22,7 +22,7 @@ html(lang='en')
                 .col.s6
                   each value in left_block
                     p
-                      - var subscribed = subscribtions.indexOf(value) > -1
+                      - var subscribed = subscriptions.indexOf(value) > -1
                       if subscribed
                         input(type='checkbox', id!=value,checked).item_checks
                       else
@@ -33,7 +33,7 @@ html(lang='en')
                 .col.s6
                   each value in right_block
                     p
-                      - var subscribed = subscribtions.indexOf(value) > -1
+                      - var subscribed = subscriptions.indexOf(value) > -1
                       if subscribed
                         input(type='checkbox', id!=value,checked).item_checks
                       else

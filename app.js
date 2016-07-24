@@ -49,28 +49,28 @@ server.listen(config.server_port,config.server_ip_address, function () {
 io.on('connection',function (socket) {
   console.log("New socket connected");
 
-  var subscribtion = [];
+  var subscription = [];
 
-  eventEmitter.on("restore subscribtion",function(data) {
-    subscribtion = data.items;
+  eventEmitter.on("restore subscription",function(data) {
+    subscription = data.items;
   });
-  eventEmitter.on("subscribtion added",function(data) {
-    subscribtion.push(data.item);
+  eventEmitter.on("subscription added",function(data) {
+    subscription.push(data.item);
   });
-  eventEmitter.on("subscribtion removed",function(data) {
-  _.pull(subscribtion,data.item);
+  eventEmitter.on("subscription removed",function(data) {
+  _.pull(subscription,data.item);
   });
   eventEmitter.on("subscribe all",function(data) {
-    subscribtion = data.items;
+    subscription = data.items;
   });
   eventEmitter.on("unsubscribe all",function() {
-    subscribtion = [];
+    subscription = [];
   });
 
   eventEmitter.on('dbchange',function(data) {
     console.log(data);
-    console.log("subscribtion.indexOf(data.item) > -1   " + subscribtion.indexOf(data.value) > -1);
-    // if(subscribtion.indexOf(data.item) > -1)
+    console.log("subscription.indexOf(data.item) > -1   " + subscription.indexOf(data.value) > -1);
+    // if(subscription.indexOf(data.item) > -1)
       socket.emit('notification', data);
   })
 
