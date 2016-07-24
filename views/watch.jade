@@ -1,0 +1,64 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0')
+    title Starter Template - Materialize
+    // CSS
+    //link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    //link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css')
+    link(rel='stylesheet', href='./stylesheets/materialize.min.css')
+    link(rel='stylesheet', href='./stylesheets/watch-style.css')
+  body
+    #index-banner.section.no-pad-bot
+      .container
+        h1.header.center.red-text Some Awesome Header here
+        .row
+          .col.s7.grid-separates
+            .row
+              .col.s12.left-align Select what you want to follow
+            .row
+              form(action='#')
+                .col.s6
+                  each value in left_block
+                    p
+                      - var subscribed = subscribtions.indexOf(value) > -1
+                      if subscribed
+                        input(type='checkbox', id!=value,checked).item_checks
+                      else
+                        input(type='checkbox', id!=value).item_checks
+                      label(for!=value)
+                        !=value
+
+                .col.s6
+                  each value in right_block
+                    p
+                      - var subscribed = subscribtions.indexOf(value) > -1
+                      if subscribed
+                        input(type='checkbox', id!=value,checked).item_checks
+                      else
+                        input(type='checkbox', id!=value).item_checks
+                      label(for!=value)
+                        !=value
+            .row
+              //form(action='#')
+              //  .input-field.col.s4
+              //    input(placeholder='Want Somthing more?' id="request",type='text')
+              //    label(for="request")
+              //      | Request here
+              .col.s4
+                .waves-effect.waves-light.btn#unsubscribe_all
+                  | Subscribe All
+
+          .col.s5.grid-separates
+            .row
+              .col.s12.updates-header.collection-header
+                h6.updates-header Updates
+              ul#updates_ul.collection.slide-fade.with-header.with-scroll
+    // Scripts
+    //script(src='https://code.jquery.com/jquery-2.1.1.min.js')
+    //script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
+    script(src="/javascripts/socket.io.js")
+    script(src='/javascripts/jquery-2.1.1.min.js')
+    script(src='/javascripts/materialize.min.js')
+    script(src='/javascripts/init.js')

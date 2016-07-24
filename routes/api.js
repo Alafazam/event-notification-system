@@ -10,21 +10,20 @@ router.get('/', function(req, res) {
     res.json({ message: 'Show Api Doc here' });
 });
 
-
 router.route('/items')
     // create a item
     .post(function(req, res) {
-        var item = new Item();
-        item.title = req.body.title;
-        item.body = req.body.body;
-        item.tags = req.body.tags.split(',');
-
-        // save the item and check for errors
-        item.save(function(err) {
+        var timestamp = Date.now();
+        Item.findOneAndUpdate(
+          { name: req.body.name },
+          { date:  timestamp},
+          { new: true, upsert: true },
+          function(err,item) {
             if (err)
                 res.send(err);
-
-            res.json({ message: 'Item created!' });
+            new_item = {name: item.name,date: item.date};
+            eventEmitter.emit('dbchange',{operation:"create", value:req.body.name, timestamp:timestamp});
+            res.json({ message: 'Item Updated!',item: new_item });
         });
     })
     // get all the items
@@ -37,10 +36,9 @@ router.route('/items')
         });
     });
 
-router.route('/items/:item_id')
+router.route('/items/:name')
     .get(function(req, res) {
-
-        Item.findById(req.params.item_id).
+        Item.find({name: req.params.name}).
         limit(10).
         sort('-date').
         exec(function(err, item) {
@@ -51,39 +49,35 @@ router.route('/items/:item_id')
     })
     //  put for updating the item
     .put(function(req, res) {
-
-        Item.findById(req.params.item_id).
-        limit(10).
-        sort('-date').
-        exec(function(err, item) {
-
+        var timestamp = Date.now();
+        Item.findOneAndUpdate(
+          { name: req.params.name },
+          { date: timestamp },
+          { new: false, upsert: false },
+          function(err, item) {
             if (err)
                 res.send(err);
+            if(!item)
+                return res.json({ message: 'No Such Item!'});
 
-            item.name = req.body.name;
-
-            // save the item
-            item.save(function(err) {
-                if (err)
-                    res.send(err);
-
-                res.json({ message: 'Item updated!' });
-            });
-          });
+            new_item = {name: item.name,date: item.date};
+            eventEmitter.emit('dbchange',{operation:"update",value:req.params.name,timestamp:timestamp});
+            res.json({ message: 'Item Updated!', item: new_item});
+        });
     })
     // delete the item with this id
     .delete(function(req, res) {
+        var timestamp = Date.now();
         Item.remove({
-            _id: req.params.item_name
-        }, function(err, bear) {
+            name: req.params.name
+        }, function(err, item) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Successfully deleted' });
+            eventEmitter.emit('dbchange',{operation:"delete",value:req.params.name,timestamp:timestamp});
+            res.json({ message: 'Successfully deleted',item: item});
         });
     });
-
-
 
 
 

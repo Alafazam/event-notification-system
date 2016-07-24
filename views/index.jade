@@ -1,15 +1,21 @@
 doctype html
-html
-	head
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-		meta(charset="UTF-8")
+html(lang='en')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1.0')
+    title Starter Template - Materialize
+    // CSS
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons",rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css")
 
-		link(rel="stylesheet" href="/stylesheets/materialize.min.css")
-		title
-			|Social Cops Team
-	body
-		div(class="container")
-			h1(class="header center teal-text text-lighten-2")
-			|Track Em all
-		script(src='/javascripts/jquery.min.js')
-		script(src='/javascripts/materialize.min.js')
+  body
+    #index-banner.section.no-pad-bot
+      .container
+        h1.header.center.red-text Social Cops TV series Follower
+        .row.center
+          h5.header.col.s12.light An amazing app to keep you updated
+        .row.center
+          a#download-button.btn-large.waves-effect.waves-light.red(href='/getting_started') Get Started
+    // Scripts
+    script(src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
