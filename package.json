@@ -6,16 +6,17 @@
     "main": "server.js"
   },
   "dependencies": {
-    "express": "~4.13.4",
-    "pug": "~1.11.0",
-    "socket.io": "1.4.4",
-    "lodash": "~3.10.1",
-    "express-session": "~1.13.0",
-    "morgan": "~1.6.1",
-    "body-parser": "~1.14.2",
+    "express": "~4.14.0",
+    "pug": "*",
+    "jade": "~1.11.0",
+    "socket.io": "~1.4.8",
+    "lodash": "~4.13.1",
+    "express-session": "~1.14.0",
+    "morgan": "~1.7.0",
+    "body-parser": "~1.15.2",
     "multer": "~1.1.0",
-    "cookie-parser": "~1.4.1",
-    "mongoose":"*"
+    "cookie-parser": "~1.4.3",
+    "mongoose": "~4.5.6"
   },
   "repository": {
     "type": "git",
