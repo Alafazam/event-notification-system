@@ -21,7 +21,7 @@ var default_route  = require('./routes/default');
 var config = require('./config');
 
 var mongoDB_url = config.mongoDB_url;
-var FileStore = require('session-file-store')(Session);
+// var FileStore = require('session-file-store')(Session);
 mongoose.connect(mongoDB_url);
 session = Session(config.session);
 
