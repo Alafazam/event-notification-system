@@ -1,0 +1,24 @@
+{
+  "name": "followme",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node server.js",
+    "main": "server.js"
+  },
+  "dependencies": {
+    "express": "~4.13.4",
+    "pug": "~1.11.0",
+    "socket.io": "1.4.4",
+    "lodash": "~3.10.1",
+    "express-session": "~1.13.0",
+    "morgan": "~1.6.1",
+    "body-parser": "~1.14.2",
+    "multer": "~1.1.0",
+    "cookie-parser": "~1.4.1",
+    "mongoose":"*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alafazam/demo.git"
+  }
+}
