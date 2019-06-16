@@ -69,8 +69,8 @@ io.on('connection',function (socket) {
 
   eventEmitter.on('dbchange',function(data) {
     console.log(data);
-    console.log("subscription.indexOf(data.item) > -1   " + subscription.indexOf(data.value) > -1);
-    // if(subscription.indexOf(data.item) > -1)
+    console.log("subscription.indexOf(data.value) > -1   " + subscription.indexOf(data.value) > -1);
+    if(subscription.indexOf(data.value) > -1)
       socket.emit('notification', data);
   })
 
